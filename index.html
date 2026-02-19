@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vanilla SPA — Relaxed Web Development</title>
-  
+
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  
+  <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
+
   <style>
     /* ══════════════════════════════════════════════════════════════ */
     /* Reset & Base */
     /* ══════════════════════════════════════════════════════════════ */
-    
-    *, *::before, *::after { 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    
+
     :root {
       /* Soft, calming palette */
-      --bg:           #fafbfc;
-      --surface:      #ffffff;
-      --border:       #e1e4e8;
-      --accent:       #34d399;    /* Emerald green */
-      --accent-soft:  #d1fae5;
-      --accent-dark:  #059669;
-      --text:         #1f2937;
-      --text-muted:   #6b7280;
-      --shadow:       0 2px 8px rgba(0, 0, 0, 0.04);
-      --shadow-lg:    0 10px 40px rgba(0, 0, 0, 0.08);
-      --radius:       12px;
-      --font-sans:    'Inter', system-ui, -apple-system, sans-serif;
-      --font-mono:    'JetBrains Mono', monospace;
+      --bg: #fafbfc;
+      --surface: #ffffff;
+      --border: #e1e4e8;
+      --accent: #34d399;
+      /* Emerald green */
+      --accent-soft: #d1fae5;
+      --accent-dark: #059669;
+      --text: #1f2937;
+      --text-muted: #6b7280;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
     }
-    
+
     body {
       background: var(--bg);
       color: var(--text);
@@ -45,23 +47,23 @@
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
-    
+
     ::selection {
       background: var(--accent-soft);
       color: var(--accent-dark);
     }
-    
+
     /* ══════════════════════════════════════════════════════════════ */
     /* Hero Section */
     /* ══════════════════════════════════════════════════════════════ */
-    
+
     .hero {
       text-align: center;
       padding: 5rem 2rem 4rem;
       background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
       border-bottom: 1px solid var(--border);
     }
-    
+
     .hero-badge {
       display: inline-block;
       font-size: .8rem;
@@ -73,7 +75,7 @@
       margin-bottom: 1.5rem;
       letter-spacing: .02em;
     }
-    
+
     .hero h1 {
       font-size: clamp(2.5rem, 8vw, 4.5rem);
       font-weight: 300;
@@ -81,14 +83,14 @@
       margin-bottom: .5rem;
       color: var(--text);
     }
-    
+
     .hero h1 strong {
       font-weight: 700;
       background: linear-gradient(135deg, var(--accent), var(--accent-dark));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    
+
     .hero .tagline {
       font-size: 1.3rem;
       color: var(--text-muted);
@@ -96,14 +98,14 @@
       margin: 0 auto 2.5rem;
       font-weight: 400;
     }
-    
+
     .hero-cta {
       display: flex;
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
     }
-    
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -115,49 +117,49 @@
       transition: all .2s;
       font-size: 1rem;
     }
-    
+
     .btn-primary {
       background: var(--accent);
       color: white;
       box-shadow: 0 4px 12px rgba(52, 211, 153, 0.3);
     }
-    
+
     .btn-primary:hover {
       background: var(--accent-dark);
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(52, 211, 153, 0.4);
     }
-    
+
     .btn-secondary {
       background: var(--surface);
       color: var(--text);
       border: 1px solid var(--border);
     }
-    
+
     .btn-secondary:hover {
       border-color: var(--accent);
       color: var(--accent-dark);
       transform: translateY(-2px);
       box-shadow: var(--shadow);
     }
-    
+
     /* ══════════════════════════════════════════════════════════════ */
     /* Features Section */
     /* ══════════════════════════════════════════════════════════════ */
-    
+
     .features {
       padding: 5rem 2rem;
       max-width: 1200px;
       margin: 0 auto;
     }
-    
+
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-top: 3rem;
     }
-    
+
     .feature-card {
       background: var(--surface);
       padding: 2rem;
@@ -165,47 +167,47 @@
       border: 1px solid var(--border);
       transition: all .3s;
     }
-    
+
     .feature-card:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow-lg);
       border-color: var(--accent);
     }
-    
+
     .feature-icon {
       font-size: 2.5rem;
       margin-bottom: 1rem;
       display: block;
     }
-    
+
     .feature-card h3 {
       font-size: 1.3rem;
       font-weight: 600;
       margin-bottom: .7rem;
       color: var(--text);
     }
-    
+
     .feature-card p {
       color: var(--text-muted);
       font-size: .95rem;
       line-height: 1.6;
     }
-    
+
     /* ══════════════════════════════════════════════════════════════ */
     /* Guide Section */
     /* ══════════════════════════════════════════════════════════════ */
-    
+
     .guide {
       background: var(--surface);
       border-top: 1px solid var(--border);
       padding: 5rem 2rem;
     }
-    
+
     .guide-inner {
       max-width: 800px;
       margin: 0 auto;
     }
-    
+
     .guide h2 {
       font-size: 2rem;
       font-weight: 600;
@@ -214,25 +216,25 @@
       border-bottom: 2px solid var(--border);
       color: var(--text);
     }
-    
+
     .guide h3 {
       font-size: 1.4rem;
       font-weight: 600;
       margin: 2.5rem 0 1rem;
       color: var(--text);
     }
-    
+
     .guide p {
       color: var(--text-muted);
       margin-bottom: 1.2rem;
       font-size: 1.05rem;
     }
-    
+
     .guide strong {
       color: var(--accent-dark);
       font-weight: 600;
     }
-    
+
     .guide code {
       font-family: var(--font-mono);
       font-size: .9em;
@@ -241,7 +243,7 @@
       padding: .2rem .5rem;
       border-radius: 4px;
     }
-    
+
     .guide pre {
       background: #f6f8fa;
       border: 1px solid var(--border);
@@ -251,7 +253,7 @@
       margin: 1.5rem 0;
       box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
     }
-    
+
     .guide pre code {
       background: none;
       padding: 0;
@@ -259,7 +261,7 @@
       font-size: .9rem;
       line-height: 1.7;
     }
-    
+
     /* Step numbers */
     .step {
       display: flex;
@@ -267,7 +269,7 @@
       margin: 2rem 0;
       align-items: flex-start;
     }
-    
+
     .step-number {
       flex-shrink: 0;
       width: 3rem;
@@ -282,15 +284,15 @@
       font-size: 1.3rem;
       box-shadow: 0 4px 12px rgba(52, 211, 153, 0.3);
     }
-    
+
     .step-content {
       flex: 1;
     }
-    
+
     .step-content h3 {
       margin-top: 0;
     }
-    
+
     /* Callout boxes */
     .callout {
       background: var(--accent-soft);
@@ -299,21 +301,21 @@
       border-radius: 6px;
       margin: 1.5rem 0;
     }
-    
+
     .callout.info {
       background: #dbeafe;
       border-left-color: #3b82f6;
     }
-    
+
     .callout.warning {
       background: #fef3c7;
       border-left-color: #f59e0b;
     }
-    
+
     .callout strong {
       color: var(--text);
     }
-    
+
     /* Practice cards */
     .practice {
       background: #f9fafb;
@@ -322,27 +324,27 @@
       padding: 1.5rem;
       margin: 1.5rem 0;
     }
-    
+
     .practice h3 {
       margin-top: 0;
       font-size: 1.1rem;
     }
-    
+
     .practice p {
       margin-bottom: 0;
     }
-    
+
     /* ══════════════════════════════════════════════════════════════ */
     /* Footer */
     /* ══════════════════════════════════════════════════════════════ */
-    
+
     .footer {
       background: #f9fafb;
       border-top: 1px solid var(--border);
       padding: 3rem 2rem;
       text-align: center;
     }
-    
+
     .footer-links {
       display: flex;
       gap: 2rem;
@@ -350,46 +352,59 @@
       flex-wrap: wrap;
       margin-bottom: 1.5rem;
     }
-    
+
     .footer-links a {
       color: var(--text-muted);
       text-decoration: none;
       font-weight: 500;
       transition: color .2s;
     }
-    
+
     .footer-links a:hover {
       color: var(--accent-dark);
     }
-    
+
     .footer p {
       color: var(--text-muted);
       font-size: .9rem;
     }
-    
+
     /* ══════════════════════════════════════════════════════════════ */
     /* Scroll animations */
     /* ══════════════════════════════════════════════════════════════ */
-    
+
     @keyframes fadeUp {
       from {
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: none;
       }
     }
-    
-    .feature-card, .step {
+
+    .feature-card,
+    .step {
       animation: fadeUp .6s ease backwards;
     }
-    
-    .feature-card:nth-child(1) { animation-delay: .1s; }
-    .feature-card:nth-child(2) { animation-delay: .2s; }
-    .feature-card:nth-child(3) { animation-delay: .3s; }
-    .feature-card:nth-child(4) { animation-delay: .4s; }
+
+    .feature-card:nth-child(1) {
+      animation-delay: .1s;
+    }
+
+    .feature-card:nth-child(2) {
+      animation-delay: .2s;
+    }
+
+    .feature-card:nth-child(3) {
+      animation-delay: .3s;
+    }
+
+    .feature-card:nth-child(4) {
+      animation-delay: .4s;
+    }
   </style>
 </head>
 
@@ -398,12 +413,12 @@
   <!-- ═══════════════════════════════════════════════════════════════ -->
   <!-- HERO -->
   <!-- ═══════════════════════════════════════════════════════════════ -->
-  
+
   <section class="hero">
     <div class="hero-badge">✨ No framework, no stress</div>
     <h1>Build SPAs with <strong>Vanilla SPA</strong></h1>
     <p class="tagline">
-      Vanilla Web Components made simple. Just HTML, CSS, and JavaScript. 
+      Vanilla Web Components made simple. Just HTML, CSS, and JavaScript.
       No build tools required.
     </p>
     <div class="hero-cta">
@@ -419,10 +434,10 @@
   <!-- ═══════════════════════════════════════════════════════════════ -->
   <!-- FEATURES -->
   <!-- ═══════════════════════════════════════════════════════════════ -->
-  
+
   <section class="features">
     <div class="features-grid">
-      
+
       <div class="feature-card">
         <span class="feature-icon">📄</span>
         <h3>Components = HTML Files</h3>
@@ -431,7 +446,7 @@
           No JSX, no compilation.
         </p>
       </div>
-      
+
       <div class="feature-card">
         <span class="feature-icon">🔒</span>
         <h3>Shadow DOM Isolation</h3>
@@ -440,54 +455,57 @@
           Your components stay independent.
         </p>
       </div>
-      
+
       <div class="feature-card">
         <span class="feature-icon">⚡</span>
         <h3>Zero Build Stress</h3>
         <p>
-          Components load via <code>fetch()</code>. Use Vite for dev if you want, 
+          Components load via <code>fetch()</code>. Use Vite for dev if you want,
           but it's not required.
         </p>
       </div>
-      
+
       <div class="feature-card">
         <span class="feature-icon">🗄️</span>
         <h3>Offline SQLite</h3>
         <p>
-          Full SQLite database in the browser. OPFS persistence, 
+          Full SQLite database in the browser. OPFS persistence,
           Web Worker execution. No server needed.
         </p>
       </div>
-      
+
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════ -->
   <!-- GUIDE -->
   <!-- ═══════════════════════════════════════════════════════════════ -->
-  
+
   <section class="guide" id="quick-start">
     <div class="guide-inner">
-      
+
       <h2>Quick Start</h2>
-      
+
       <p>
-        Vanilla SPA is built on <strong>W3C Web Components</strong>. 
+        Vanilla SPA is built on <strong>W3C Web Components</strong>.
         No magic, no virtual DOM — just the platform.
       </p>
 
       <!-- ──────────────────────────────────────────────────────────── -->
       <!-- Installation -->
       <!-- ──────────────────────────────────────────────────────────── -->
-      
+
       <h3>Installation</h3>
-      
+
       <div class="step">
         <span class="step-number">1</span>
         <div class="step-content">
-          <h3>Create Your Project</h3>
-          <pre><code>npm init -y npm install @vanillaspa/shadow-h4x @vanillaspa/event-bux @vanillaspa/sqlite</code></pre>
-          <pre><code>npm init vite --save-dev</code></pre>
+          <h3>Create Your Project manually</h3>
+          <pre><code>npm init -y</code></pre>
+          <pre><code>npm install @vanillaspa/web-components @vanillaspa/event-bus @vanillaspa/sqlite-database</code></pre>
+          <pre><code>npm install vite --save-dev</code></pre>
+          or
+          <pre><code>git clone https://github.com/vanillaspa/vanillaspa.git</code></pre>
         </div>
       </div>
 
@@ -515,24 +533,26 @@
           <pre><code>{
   "type": "module",
   "scripts": {
-    "generate": "node node_modules/@vanillaspa/shadow-h4x/generate.cjs",
+    "generate": "node node_modules/@vanillaspa/web-components/generate.cjs",
     "dev": "npm run generate && vite",
     "build": "npm run generate && vite build"
   }
 }</code></pre>
-          <p><strong>generate.cjs</strong> automatically scans <code>/public/components</code> and builds your component registry.</p>
+          <p><strong>generate.cjs</strong> automatically scans <code>/public/components</code> and builds your component
+            registry.</p>
         </div>
       </div>
 
       <!-- ──────────────────────────────────────────────────────────── -->
       <!-- First Component -->
       <!-- ──────────────────────────────────────────────────────────── -->
-      
+
       <h3>Your First Component</h3>
-      
+
       <div class="callout">
-        <strong>Filename Convention:</strong> <code>/public/components/{prefix}/{prefix}-{suffix}.html</code> → <code>&lt;prefix-suffix&gt;</code>
-        <br/><br/>
+        <strong>Filename Convention:</strong> <code>/public/components/{prefix}/{prefix}-{suffix}.html</code> →
+        <code>&lt;prefix-suffix&gt;</code>
+        <br /><br />
         Example: <code>/public/components/app/app-start.html</code> → <code>&lt;app-start&gt;</code>
       </div>
 
@@ -569,15 +589,16 @@ console.log('Component loaded:', h1.textContent);
 &lt;/script&gt;</code></pre>
 
       <div class="callout info">
-        <strong>Important:</strong> <code>&lt;template&gt;</code>, <code>&lt;style&gt;</code>, and <code>&lt;script&gt;</code> must be siblings at the top level — not nested.
+        <strong>Important:</strong> <code>&lt;template&gt;</code>, <code>&lt;style&gt;</code>, and
+        <code>&lt;script&gt;</code> must be siblings at the top level — not nested.
       </div>
 
       <!-- ──────────────────────────────────────────────────────────── -->
       <!-- shadowDocument -->
       <!-- ──────────────────────────────────────────────────────────── -->
-      
+
       <h3>The shadowDocument Magic</h3>
-      
+
       <p>
         Vanilla SPA automatically injects <code>shadowDocument</code> into every script tag.
         It's your component's Shadow Root — no setup needed.
@@ -605,11 +626,11 @@ console.log(host.tagName); // "APP-START"
       <!-- ──────────────────────────────────────────────────────────── -->
       <!-- Functions in Templates -->
       <!-- ──────────────────────────────────────────────────────────── -->
-      
+
       <h3>Using Functions in Templates</h3>
-      
+
       <p>
-        Since scripts are modules, functions aren't global. 
+        Since scripts are modules, functions aren't global.
         The solution: <strong>data-action pattern</strong> + <strong>bindActions()</strong>
       </p>
 
@@ -648,9 +669,9 @@ bindActions(shadowDocument, { greet, celebrate });
       <!-- ──────────────────────────────────────────────────────────── -->
       <!-- Component Communication -->
       <!-- ──────────────────────────────────────────────────────────── -->
-      
+
       <h3>Component Communication</h3>
-      
+
       <p>
         Use <code>@vanillaspa/event-bux</code> for context-based events.
         Events are automatically cleaned up when components are removed.
@@ -658,8 +679,8 @@ bindActions(shadowDocument, { greet, celebrate });
 
       <p><strong>Setup in</strong> <code>src/main.js</code>:</p>
 
-      <pre><code>import '@vanillaspa/shadow-h4x';
-import * as bus from '@vanillaspa/event-bux';
+      <pre><code>import '@vanillaspa/web-components';
+import * as bus from '@vanillaspa/event-bus';
 window.bus = bus;</code></pre>
 
       <p><strong>In your component:</strong></p>
@@ -686,18 +707,18 @@ bus.addEventListener('user-action', (e) => {
       <!-- ──────────────────────────────────────────────────────────── -->
       <!-- SQLite (Optional) -->
       <!-- ──────────────────────────────────────────────────────────── -->
-      
+
       <h3>Offline Database (Optional)</h3>
-      
+
       <p>
-        Add <code>@vanillaspa/sqlite</code> for a full SQLite database in the browser.
+        Add <code>@vanillaspa/sqlite-database</code> for a full SQLite database in the browser.
         Persisted in OPFS, runs in Web Worker.
       </p>
 
-      <pre><code>npm install @vanillaspa/sqlite</code></pre>
+      <pre><code>npm install @vanillaspa/sqlite-database</code></pre>
 
       <pre><code>&lt;script&gt;
-import * as sqlite from '@vanillaspa/sqlite';
+import * as sqlite from '@vanillaspa/sqlite-database';
 
 // Create database
 await sqlite.createDB('my-app');
@@ -728,7 +749,7 @@ const users = await sqlite.executeQuery(
       <!-- ──────────────────────────────────────────────────────────── -->
       <!-- Best Practices -->
       <!-- ──────────────────────────────────────────────────────────── -->
-      
+
       <h3>Best Practices</h3>
 
       <div class="practice">
@@ -776,13 +797,13 @@ const users = await sqlite.executeQuery(
       <!-- ──────────────────────────────────────────────────────────── -->
       <!-- Why Vanilla SPA? -->
       <!-- ──────────────────────────────────────────────────────────── -->
-      
+
       <h3>Why Vanilla SPA?</h3>
-      
+
       <p>
         <strong>Perfect for:</strong>
       </p>
-      
+
       <ul style="color: var(--text-muted); margin-left: 1.5rem; line-height: 1.8;">
         <li>Government and public sector apps</li>
         <li>Internal tools and dashboards</li>
@@ -790,10 +811,10 @@ const users = await sqlite.executeQuery(
         <li>Projects that need long-term maintainability</li>
         <li>Teams tired of framework churn</li>
       </ul>
-      
+
       <p style="margin-top: 1.5rem;">
-        <strong>Built on W3C standards:</strong> 
-        Custom Elements, Shadow DOM, ES Modules. 
+        <strong>Built on W3C standards:</strong>
+        Custom Elements, Shadow DOM, ES Modules.
         No proprietary APIs. Your code will still work in 10 years.
       </p>
 
@@ -803,17 +824,19 @@ const users = await sqlite.executeQuery(
   <!-- ═══════════════════════════════════════════════════════════════ -->
   <!-- FOOTER -->
   <!-- ═══════════════════════════════════════════════════════════════ -->
-  
+
   <footer class="footer">
     <div class="footer-links">
       <a href="https://github.com/vanillaspa/vanillaspa" target="_blank">GitHub</a>
-      <a href="https://github.com/vanillaspa/shadow-h4x" target="_blank">shadow-h4x</a>
-      <a href="https://github.com/vanillaspa/sqlite" target="_blank">SQLite</a>
+      <a href="https://github.com/vanillaspa/web-components" target="_blank">web-components</a>
+      <a href="https://github.com/vanillaspa/event-bus" target="_blank">event-bus</a>
+      <a href="https://github.com/vanillaspa/sqlite-database" target="_blank">sqlite-database</a>
       <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components" target="_blank">Web Components Docs</a>
     </div>
-    <p>Vanilla SPA — Relaxed web development with vanilla components</p>
+    <p>Vanilla SPA — Easy web development with Single File Components in .html files</p>
     <p style="margin-top: .5rem; font-size: .85rem;">Unlicense — Public Domain</p>
   </footer>
 
 </body>
+
 </html>
