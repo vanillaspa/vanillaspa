@@ -6,9 +6,7 @@ With Vanilla SPA your web development experience can become a dream. There is no
 
 I kid You not: Vanilla SPA is an advanced, yet minimalistic WebComponents framework featuring most of the functionality of popular JavaScript frameworks, but in a fraction of their complexity. It is written in vanilla JavaScript.
 
-Vanilla SPA is solely built on <a title="Vite" href="https://vitejs.dev"><img height="20" alt="Vitejs-logo" src="https://vitejs.dev/logo.svg"></a> and has an optional <a title="SQLite" href="https://sqlite.org/wasm"><img height="20" alt="SQLite-logo" src="https://sqlite.org/images/sqlite370_banner.gif"></a> database within the [Origin Private Filesystem (OPFS)](https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system).
-
-This is free and unencumbered software released into the public domain. The Unlicense
+This is free and unencumbered software released into the public domain. [The Unlicense](https://choosealicense.com/licenses/unlicense/)
 
 ## Installation
 
@@ -16,12 +14,11 @@ This is free and unencumbered software released into the public domain. The Unli
 
 You need to have <a title="NodeJS" href="https://nodejs.org"><img height="20" alt="NodeJS-logo" src="https://www.vectorlogo.zone/logos/nodejs/nodejs-ar21.svg"></a> installed.
 
-Vanilla SPA is built of
+The Vanilla SPA boilerplate consists of
 [web-components](https://github.com/vanillaspa/web-components)
 [event-bus](https://github.com/vanillaspa/event-bus),
-[sqlite-database](https://github.com/vanillaspa/sqlite-database)
-
-Each module can be used standalone.
+[sqlite-database](https://github.com/vanillaspa/sqlite-database), a <a title="SQLite" href="https://sqlite.org/wasm"><img height="20" alt="SQLite-logo" src="https://sqlite.org/images/sqlite370_banner.gif"></a> database within the [Origin Private Filesystem (OPFS)](https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system)
+on top of <a title="Vite" href="https://vitejs.dev"><img height="20" alt="Vitejs-logo" src="https://vitejs.dev/logo.svg"></a>
 
 ### Getting started
 
