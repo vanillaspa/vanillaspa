@@ -537,7 +537,8 @@
     "build": "npm run generate && vite build"
   }
 }</code></pre>
-          <p><strong>generate.cjs</strong> scans <code>/public/components</code>. All found components are added automagically to your customElements registry with web-components.</p>
+          <p><strong>generate.cjs</strong> scans <code>/public/components</code>. All found components are added
+            automagically to your customElements registry with web-components.</p>
         </div>
       </div>
 
@@ -836,5 +837,24 @@ const users = await sqlite.executeQuery(
   </footer>
 
 </body>
+
+<!-- Uncomment to see web-components in work. -->
+<!-- <script type="module">
+  Promise.all([
+    import('@vanillaspa/event-bus'),
+    import('@vanillaspa/sqlite-database')
+  ]).then((importedModules) => {
+    importedModules.forEach((module) => {
+      if (!module.name) {
+        throw new Error('Missing name in imported module.');
+      }
+      window[module.name] = module;
+    });
+     queueMicrotask(() => import('@vanillaspa/web-components'));
+  }).finally(() => { // replace body with custom router-app
+    const root = document.getElementsByTagName('body')[0];
+    root.innerHTML = '<router-app></router-app>';
+  });
+</script> -->
 
 </html>
