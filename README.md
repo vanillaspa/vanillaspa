@@ -27,10 +27,17 @@ Running Vanilla SPA is as easy as cloning the current repository.
 ```
 and then simply 
 ```bash
+  npm run dev
+```
+or
+```bash
   npm run build
   npm run preview
 ```
-to quickly setup a vanillaspa project. You can then access the app via https://localhost:4173 in your browser.
+
+You can then access the app via https://localhost:4173 in your browser.
+
+To quickly start a vanillaspa project just remove the comment in the bottom of the index.html.
 
 ## How-To
 
