@@ -416,10 +416,9 @@
 
   <section class="hero">
     <div class="hero-badge">✨ No framework, no stress.</div>
-    <h1>Build SPAs with <strong>Vanilla SPA</strong></h1>
+    <h1>Build Single Page Applications with <strong>Vanilla SPA</strong></h1>
     <p class="tagline">
-      Vanilla Web Components made easy. Just HTML, CSS, and JavaScript.
-      No build tools required.
+      Vanilla Web Components made easy. Just basic Web-Technology.
     </p>
     <div class="hero-cta">
       <a href="#quick-start" class="btn btn-primary">
@@ -442,8 +441,7 @@
         <span class="feature-icon">📄</span>
         <h3>Components = HTML Files</h3>
         <p>
-          Each component is a single <code>.html</code> file with template, styles, and script.
-          No JSX, no compilation.
+          Each component is a single <code>.html</code> file with template, styles, and script. No compilation needed.
         </p>
       </div>
 
@@ -451,26 +449,25 @@
         <span class="feature-icon">🔒</span>
         <h3>Shadow DOM Isolation</h3>
         <p>
-          CSS scoping built-in. No naming conflicts, no style leaks.
+          (S)CSS scoping built-in. No naming conflicts, no style leaks.
           Your components stay independent.
         </p>
       </div>
 
       <div class="feature-card">
         <span class="feature-icon">⚡</span>
-        <h3>Zero Build Stress</h3>
+        <h3>Sustainable Development</h3>
         <p>
-          Components load via <code>fetch()</code>. Use Vite for dev if you want,
-          but it's not required.
+          Your components will still work in 10 years. They are build on basic web-technology.
         </p>
       </div>
 
       <div class="feature-card">
         <span class="feature-icon">🗄️</span>
-        <h3>Offline SQLite</h3>
+        <h3>OPFS SQLite</h3>
         <p>
-          Full SQLite database in the browser. OPFS persistence,
-          Web Worker execution. No server needed.
+          Full SQLite database in the Origin Private File System (OPFS) of your browser.
+          Web Worker pooling. No server needed.
         </p>
       </div>
 
@@ -497,32 +494,33 @@
 
       <h3>Installation</h3>
 
+      <p>Grab the boilerplate code
+      <pre><code>git clone https://github.com/vanillaspa/vanillaspa.git</code></pre>
+      or
+      </p>
       <div class="step">
         <span class="step-number">1</span>
         <div class="step-content">
-          <h3>Create Your Project manually</h3>
-          <pre><code>npm init -y</code></pre>
-          <pre><code>npm install @vanillaspa/web-components @vanillaspa/event-bus @vanillaspa/sqlite-database</code></pre>
-          <pre><code>npm install vite --save-dev</code></pre>
-          or
-          <pre><code>git clone https://github.com/vanillaspa/vanillaspa.git</code></pre>
+          <h3>Create your own project manually</h3>
+          <pre>
+<code>npm init -y</code>
+<code>npm install @vanillaspa/web-components @vanillaspa/event-bus @vanillaspa/sqlite-database</code>
+<code>npm install vite --save-dev</code></pre>
         </div>
       </div>
 
       <div class="step">
         <span class="step-number">2</span>
         <div class="step-content">
-          <h3>Set Up Folder Structure</h3>
+          <h3>Set Up the Folder Structure</h3>
           <pre><code>project/
 ├── index.html
 ├── package.json
-├── src/
-│   ├── main.js (optional and maybe cleaner, alternatively uncomment script in the bottom source)
-│   └── components/
-└── public/
-    └── components/
-        └── app/
-            └── app-start.html</code></pre>
+└── src/
+    ├── components/
+    │   └── app/
+    │        └── app-start.html
+    └── main.js</code></pre>
         </div>
       </div>
 
@@ -533,13 +531,14 @@
           <pre><code>{
   "type": "module",
   "scripts": {
-    "generate": "node node_modules/@vanillaspa/web-components/generate.cjs",
-    "dev": "npm run generate && vite",
-    "build": "npm run generate && vite build"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
   }
 }</code></pre>
-          <p><strong>generate.cjs</strong> scans <code>/public/components</code>. All found components are added
-            automagically to your customElements registry via the node module @vanillaspa/web-components.</p>
+          <p><strong>@vanillaspa/web-components</strong> scans <code>/src/components</code>. All found components are
+            added
+            automagically to your customElements registry.</p>
         </div>
       </div>
 
@@ -550,17 +549,17 @@
       <h3>Your First Component</h3>
 
       <div class="callout">
-        <strong>Filename Convention:</strong> <code>/public/components/{prefix}/{prefix}-{suffix}.html</code> →
+        <strong>Filename Convention:</strong> <code>/src/components/{prefix}/{prefix}-{suffix}.html</code> →
         <code>&lt;prefix-suffix&gt;</code>
         <br /><br />
-        Example: <code>/public/components/app/app-start.html</code> → <code>&lt;app-start&gt;</code>
+        Example: <code>/src/components/app/app-start.html</code> → <code>&lt;app-start&gt;</code>
       </div>
 
-      <p><strong>File:</strong> <code>/public/components/app/app-start.html</code></p>
+      <p><strong>File:</strong> <code>/src/components/app/app-start.html</code></p>
 
       <pre><code>&lt;template&gt;
   &lt;header&gt;
-    &lt;h1&gt;My Relaxed App&lt;/h1&gt;
+    &lt;h1&gt;My custom element&lt;/h1&gt;
   &lt;/header&gt;
   &lt;main&gt;
     &lt;p&gt;Hello World!&lt;/p&gt;
@@ -597,10 +596,10 @@ console.log('Component loaded:', h1.textContent);
       <!-- shadowDocument -->
       <!-- ──────────────────────────────────────────────────────────── -->
 
-      <h3>The shadowDocument Magic</h3>
+      <h3>Web-Components</h3>
 
       <p>
-        Vanilla SPA automatically injects <code>shadowDocument</code> into every script tag.
+        Vanilla SPA automagically injects <code>shadowDocument</code> into every script tag.
         It's your component's Shadow Root — no setup needed.
       </p>
 
@@ -623,57 +622,15 @@ console.log(host.tagName); // "APP-START"
         Use <code>addEventListener</code> or the <code>data-action</code> pattern instead.
       </div>
 
-      <!-- ──────────────────────────────────────────────────────────── -->
-      <!-- Functions in Templates -->
-      <!-- ──────────────────────────────────────────────────────────── -->
-
-      <h3>Using Functions in Templates</h3>
-
-      <p>
-        Since scripts are modules, functions aren't global.
-        The solution: <strong>data-action pattern</strong> + <strong>bindActions()</strong>
-      </p>
-
-      <p><strong>Create:</strong> <code>/src/bindActions.js</code></p>
-
-      <pre><code>export function bindActions(shadowDocument, actions) {
-  shadowDocument.querySelectorAll('[data-action]').forEach(el => {
-    const fn = actions[el.dataset.action];
-    if (fn) {
-      bus.addEventListener('click', fn, el);
-      el.addEventListener('click', e => bus.dispatchEvent(e, el));
-    }
-  });
-}</code></pre>
-
-      <p><strong>Use in component:</strong></p>
-
-      <pre><code>&lt;template&gt;
-  &lt;button data-action="greet"&gt;Say Hello&lt;/button&gt;
-  &lt;button data-action="celebrate"&gt;Celebrate&lt;/button&gt;
-  &lt;output id="out"&gt;–&lt;/output&gt;
-&lt;/template&gt;
-
-&lt;script&gt;
-import { bindActions } from '/src/bindActions.js';
-
-const out = shadowDocument.getElementById('out');
-
-function greet() { out.value = 'Hello! 👋'; }
-function celebrate() { out.value = 'Party! 🎉'; }
-
-// One line — done
-bindActions(shadowDocument, { greet, celebrate });
-&lt;/script&gt;</code></pre>
 
       <!-- ──────────────────────────────────────────────────────────── -->
       <!-- Component Communication -->
       <!-- ──────────────────────────────────────────────────────────── -->
 
-      <h3>Component Communication</h3>
+      <h3>Eventbus</h3>
 
       <p>
-        Use <code>@vanillaspa/event-bux</code> for context-based events.
+        Use <code>@vanillaspa/event-bus</code> for context-based events.
         Events are automatically cleaned up when components are removed.
       </p>
 
@@ -708,7 +665,7 @@ bus.addEventListener('user-action', (e) => {
       <!-- SQLite (Optional) -->
       <!-- ──────────────────────────────────────────────────────────── -->
 
-      <h3>Offline Database (Optional)</h3>
+      <h3>Database</h3>
 
       <p>
         Add <code>@vanillaspa/sqlite-database</code> for a full SQLite database in the browser.
@@ -747,6 +704,48 @@ const users = await sqlite.executeQuery(
 &lt;/script&gt;</code></pre>
 
       <!-- ──────────────────────────────────────────────────────────── -->
+      <!-- Functions in Templates -->
+      <!-- ──────────────────────────────────────────────────────────── -->
+
+      <h3>Using Functions in Templates</h3>
+
+      <p>
+        Since scripts of custom elements are modules, functions aren't global.
+        The solution: <strong>data-action pattern</strong> + <strong>bindActions()</strong>
+      </p>
+
+      <p><strong>Create:</strong> <code>/src/bindActions.js</code></p>
+
+      <pre><code>export function bindActions(shadowDocument, actions) {
+  shadowDocument.querySelectorAll('[data-action]').forEach(el => {
+    const fn = actions[el.dataset.action];
+    if (fn) {
+      bus.addEventListener('click', fn, el);
+      el.addEventListener('click', e => bus.dispatchEvent(e, el));
+    }
+  });
+}</code></pre>
+
+      <p><strong>Use in component:</strong></p>
+
+      <pre><code>&lt;template&gt;
+  &lt;button data-action="greet"&gt;Say Hello&lt;/button&gt;
+  &lt;button data-action="celebrate"&gt;Celebrate&lt;/button&gt;
+  &lt;output id="out"&gt;–&lt;/output&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import { bindActions } from '/src/bindActions.js';
+
+const out = shadowDocument.getElementById('out');
+
+function greet() { out.value = 'Hello! 👋'; }
+function celebrate() { out.value = 'Party! 🎉'; }
+
+// One line — done
+bindActions(shadowDocument, { greet, celebrate });
+&lt;/script&gt;</code></pre>
+      <!-- ──────────────────────────────────────────────────────────── -->
       <!-- Best Practices -->
       <!-- ──────────────────────────────────────────────────────────── -->
 
@@ -754,18 +753,12 @@ const users = await sqlite.executeQuery(
 
       <div class="practice">
         <h3>✅ Follow the filename convention</h3>
-        <pre><code>/public/components/{prefix}/{prefix}-{suffix}.html</code></pre>
+        <pre><code>/src/components/{prefix}/{prefix}-{suffix}.html</code></pre>
         <p>Example: <code>page/page-home.html</code> → <code>&lt;page-home&gt;</code></p>
       </div>
 
       <div class="practice">
-        <h3>✅ Use generate.cjs in your dev script</h3>
-        <pre><code>"dev": "npm run generate && vite"</code></pre>
-        <p>Automatically scans components — no manual registry updates</p>
-      </div>
-
-      <div class="practice">
-        <h3>✅ Use event-bux with context</h3>
+        <h3>✅ Use event-bus with context</h3>
         <pre><code>bus.addEventListener('my-event', handler, host);</code></pre>
         <p>Automatic cleanup when component is removed</p>
       </div>
@@ -805,6 +798,7 @@ const users = await sqlite.executeQuery(
       </p>
 
       <ul style="color: var(--text-muted); margin-left: 1.5rem; line-height: 1.8;">
+        <li>AI-friendly SPA generation</li>
         <li>Government and public sector apps</li>
         <li>Internal tools and dashboards</li>
         <li>Offline-first applications</li>

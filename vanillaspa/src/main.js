@@ -1,7 +1,7 @@
 import('@vanillaspa/web-components');
 
 customElements.whenDefined("router-app").then(() => {
-    if (confirm("Render web-components?")) {
+    if (confirm("Render Web-Components?")) {
         Promise.all([
             import('@vanillaspa/event-bus'),
             import('@vanillaspa/sqlite-database')
